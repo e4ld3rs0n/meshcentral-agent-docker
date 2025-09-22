@@ -1,0 +1,6 @@
+*.msh
+*.db
+*.sh
+*.key
+*.pem
+.git
