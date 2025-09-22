@@ -16,8 +16,9 @@ if [ -f "$AGENT_DIR/meshagent.msh" ]; then
     exec "$AGENT_DIR/meshagent"
 else
     if [ -z "$MESH_CMD" ]; then
-        echo "[ERROR] No meshagent.msh and no enrollment command provided."
-        exit 1
+        echo "[WARN] No meshagent.msh and no enrollment command provided."
+        echo "[INFO] Falling back to user command."
+        exec "$@"
     fi
     echo "[INFO] No meshagent.msh found, enrolling with provided command..."
     cd "$AGENT_DIR"
